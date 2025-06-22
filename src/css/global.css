@@ -1,0 +1,87 @@
+.product-card {
+  position: relative;
+  background: #F4F5F7;
+  max-width: 285px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.product-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  background-color: white;
+}
+
+.product-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease;
+}
+
+.product-card:hover .product-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.add-to-cart {
+  background: white;
+  color: #b88e2f;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 10px 30px;
+  margin-bottom: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.product-actions {
+  display: flex;
+  gap: 24px;
+  font-size: 14px;
+  color: white;
+}
+
+.product-actions span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+}
+
+.product-info {
+  padding: 16px;
+  text-align: left;
+}
+
+.product-info h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #000;
+}
+
+.product-info p {
+  font-size: 14px;
+  color: #8d8d8d;
+  margin-bottom: 6px;
+}
+
+.product-info .price {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+}
