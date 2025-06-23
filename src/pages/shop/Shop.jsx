@@ -45,7 +45,7 @@ const Shop = () => {
       </section>
 
       <div className="container mx-auto">
-        <div className="flex flex-wrap justify-between gap-6 items-center py-6 text-gray-700 bg-[#F9F1E7]">
+        <div className="flex flex-wrap justify-between gap-6 items-center py-6 px-4 text-gray-700 bg-[#F9F1E7]">
           <div className="flex items-center gap-4">
             <img src={systemFiltering} alt="filter-icon" />
             <span className="font-medium mr-4">Filter</span>
@@ -126,40 +126,36 @@ const Shop = () => {
         </div>
       </div>
 
-      <div className="bg-[#FAF3EA] py-14 container mx-auto">
-        <div className="px-4 flex flex-wrap justify-center gap-12">
-          <div className="flex gap-2 items-center min-w-[200px] max-w-sm">
-            <img src={trophyIcon} alt="trophy-icon" />
-            <div className="flex flex-col gap-1">
-              <strong className="text-lg">High Quality</strong>
-              <p className="text-gray-600">crafted from top materials</p>
-            </div>
+      <div className="bg-[#FAF3EA] py-14">
+        <div className="container mx-auto px-4 flex flex-wrap justify-center gap-10">
+          
+          <div className="flex flex-col items-center text-center gap-3 w-full sm:w-[220px]">
+            <img src={trophyIcon} alt="trophy-icon" className="w-12 h-12 object-contain" />
+            <strong className="text-lg">High Quality</strong>
+            <p className="text-gray-600 text-sm">crafted from top materials</p>
           </div>
-          <div className="flex gap-2 items-center min-w-[200px] max-w-sm">
-            <img src={guaranteeSvg} alt="guarantee" />
-            <div className="flex flex-col gap-1">
-              <strong className="text-lg">Warranty Protection</strong>
-              <p className="text-gray-600">Over 2 years</p>
-            </div>
+
+          <div className="flex flex-col items-center text-center gap-3 w-full sm:w-[220px]">
+            <img src={guaranteeSvg} alt="guarantee" className="w-12 h-12 object-contain" />
+            <strong className="text-lg">Warranty Protection</strong>
+            <p className="text-gray-600 text-sm">Over 2 years</p>
           </div>
-          <div className="flex gap-2 items-center min-w-[200px] max-w-sm">
-            <img src={shippingSvg} alt="shipping" />
-            <div className="flex flex-col gap-1">
-              <strong className="text-lg">Free Shipping</strong>
-              <p className="text-gray-600">Order over 150 $</p>
-            </div>
+
+          <div className="flex flex-col items-center text-center gap-3 w-full sm:w-[220px]">
+            <img src={shippingSvg} alt="shipping" className="w-12 h-12 object-contain" />
+            <strong className="text-lg">Free Shipping</strong>
+            <p className="text-gray-600 text-sm">Order over 150 $</p>
           </div>
-          <div className="flex gap-2 items-center min-w-[200px] max-w-sm">
-            <img src={customerSupport} alt="support" />
-            <div className="flex flex-col gap-1">
-              <strong className="text-lg">24 / 7 Support</strong>
-              <p className="text-gray-600">Dedicated support</p>
-            </div>
+
+          <div className="flex flex-col items-center text-center gap-3 w-full sm:w-[220px]">
+            <img src={customerSupport} alt="support" className="w-12 h-12 object-contain" />
+            <strong className="text-lg">24 / 7 Support</strong>
+            <p className="text-gray-600 text-sm">Dedicated support</p>
           </div>
+
         </div>
       </div>
     </div>
-
   );
 };
 
