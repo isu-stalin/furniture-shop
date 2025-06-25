@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 const Footer = () => {
   return (
     <footer className="bg-stone-100 pt-16 pb-6 text-sm text-[#9f9f9f]">
-      <div className="container mx-auto">
+      <div className="container mx-auto px-4">
       <div className="flex flex-wrap justify-between gap-12 mb-12">
         <div className="min-w-[200px]">
           <NavLink to={"/"}><img className="mb-4 w-34" src={logo} alt="logo"/></NavLink>
