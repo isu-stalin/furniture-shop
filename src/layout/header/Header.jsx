@@ -27,7 +27,8 @@ const Header = () => {
   }, [isOpen])
 
   return (
-    <header className="flex justify-between items-center px-6 py-4 gap-4 relative">
+    <header className='bg-stone-100 py-4'>
+      <div className="container mx-auto flex justify-between items-center px-6 gap-4 relative">
       <NavLink to="/" className="text-2xl font-bold shrink-0">
         <img src={logo} alt="logo" className="w-28" />
       </NavLink>
@@ -42,9 +43,16 @@ const Header = () => {
       <div className="flex items-center">
         <div className="hidden sm:flex gap-5 text-gray-600 text-xl">
           <UserOutlined />
+
           <SearchOutlined />
-          <HeartOutlined />
-          <ShoppingCartOutlined />
+
+          <NavLink to="/wishlist" className="hover:text-black">
+            <HeartOutlined />
+          </NavLink>
+
+          <NavLink to="/cart" className="hover:text-black">
+            <ShoppingCartOutlined />
+          </NavLink>
         </div>
 
         <div className="sm:hidden relative" ref={menuRef}>
@@ -57,22 +65,35 @@ const Header = () => {
 
           {isOpen && (
             <div className="absolute right-2 top-full mt-2 bg-white shadow-lg rounded p-3 flex flex-col gap-3 min-w-[180px] z-50">
-              <button className="flex items-center gap-2 text-gray-700 text-base">
+              <NavLink
+                to="/profile"
+                onClick={() => setIsOpen(false)}
+                className="flex items-center gap-2 text-gray-700 text-base"
+              >
                 <UserOutlined /> Account
-              </button>
+              </NavLink>
               <button className="flex items-center gap-2 text-gray-700 text-base">
                 <SearchOutlined /> Search
               </button>
-              <button className="flex items-center gap-2 text-gray-700 text-base">
+              <NavLink
+                to="/wishlist"
+                onClick={() => setIsOpen(false)}
+                className="flex items-center gap-2 text-gray-700 text-base"
+              >
                 <HeartOutlined /> Wishlist
-              </button>
-              <button className="flex items-center gap-2 text-gray-700 text-base">
+              </NavLink>
+              <NavLink
+                to="/cart"
+                onClick={() => setIsOpen(false)}
+                className="flex items-center gap-2 text-gray-700 text-base"
+              >
                 <ShoppingCartOutlined /> Cart
-              </button>
+              </NavLink>
             </div>
           )}
         </div>
       </div>
+    </div>
     </header>
   )
 }

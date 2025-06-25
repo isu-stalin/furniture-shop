@@ -4,7 +4,8 @@ import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-white px-8 sm:px-16 lg:px-24 pt-16 pb-6 text-sm text-[#9f9f9f]">
+    <footer className="bg-stone-100 pt-16 pb-6 text-sm text-[#9f9f9f]">
+      <div className="container mx-auto">
       <div className="flex flex-wrap justify-between gap-12 mb-12">
         <div className="min-w-[200px]">
           <NavLink to={"/"}><img className="mb-4 w-34" src={logo} alt="logo"/></NavLink>
@@ -47,10 +48,11 @@ const Footer = () => {
           </div>
         </div>
       </div>
-
       <div className="border-t border-[#e4e4e4] pt-6 text-black text-base ">
         <p>2023 furino. All rights reserved</p>
       </div>
+      </div>
+
     </footer>
   );
 };
