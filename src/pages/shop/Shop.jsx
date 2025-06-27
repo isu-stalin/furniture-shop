@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useProduct } from "@/api/hooks/useProduct";
 import Products from "@/components/products/Products";
@@ -21,6 +21,11 @@ const Shop = () => {
   const [params, setParams] = useSearchParams();
   const page = parseInt(params.get("page")) || 1;
   const pageSize = parseInt(params.get("pageSize")) || 16;
+
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [page, pageSize]);
 
   const { getProduct } = useProduct();
   const { data, isLoading } = getProduct({
@@ -56,7 +61,7 @@ const Shop = () => {
             <img src={gridBigRound} alt="grid" />
             <img src={viewList} alt="view list" className="mr-8" />
             <span className="border-l-2 border-gray-400 px-8">
-              Showing 1–{pageSize} of {data?.total || 0} results
+            Showing {(page - 1) * pageSize + 1}–{Math.min(page * pageSize, data?.total || 0)} of {data?.total || 0} results
             </span>
           </div>
           <div className="flex gap-4 items-center">
