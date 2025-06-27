@@ -33,6 +33,8 @@ const Shop = () => {
     params.set("pageSize", size.toString());
     setParams(params);
   };
+  console.log('da', data);
+  
 
   return (
     <div className="min-h-screen bg-white">
@@ -54,7 +56,7 @@ const Shop = () => {
             <img src={gridBigRound} alt="grid" />
             <img src={viewList} alt="view list" className="mr-8" />
             <span className="border-l-2 border-gray-400 px-8">
-              Showing 1–{pageSize} of {data?.data?.total || 0} results
+              Showing 1–{pageSize} of {data?.total || 0} results
             </span>
           </div>
           <div className="flex gap-4 items-center">
@@ -91,7 +93,7 @@ const Shop = () => {
             current={page}
             pageSize={pageSize}
             onChange={handleChangePage}
-            total={data?.data?.total}
+            total={data?.total}
             showSizeChanger
           />
         </div>
