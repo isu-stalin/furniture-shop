@@ -6,15 +6,32 @@ import {
   removeCart,
 } from "@/redux/features/cart";
 import { DeleteOutlined } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const cartItems = useSelector((state) => state.cart.value);
 
   const subtotal = cartItems.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0
   );
+
+  if (!cartItems.length) {
+    return (
+      <div className="container mx-auto px-4 py-20 text-center text-gray-600">
+        <h2 className="text-2xl font-semibold mb-4">Your cart is empty</h2>
+        <p className="mb-6">Looks like you haven’t added anything to your cart yet.</p>
+        <button
+          onClick={() => navigate("/shop")}
+          className="px-6 py-2 border border-black hover:bg-black hover:text-white transition"
+        >
+          Continue Shopping
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div className="container mx-auto px-4 py-10 flex flex-col lg:flex-row gap-10">
@@ -42,7 +59,9 @@ const Cart = () => {
               </div>
             </div>
 
-            <p className="text-gray-500">Rs. {item.price.toLocaleString("en-IN")}</p>
+            <p className="text-gray-500">
+              Rs. {item.price.toLocaleString("en-IN")}
+            </p>
 
             <div className="flex items-center border px-2 w-fit">
               <button
@@ -81,9 +100,14 @@ const Cart = () => {
         </div>
         <div className="flex justify-between mb-6 text-gray-900 font-semibold">
           <span>Total</span>
-          <span className="text-[#B88E2F]">Rs. {subtotal.toLocaleString("en-IN")}</span>
+          <span className="text-[#B88E2F]">
+            Rs. {subtotal.toLocaleString("en-IN")}
+          </span>
         </div>
-        <button className="w-full py-2 border border-black hover:bg-black hover:text-white transition">
+        <button
+          className="w-full py-2 border border-black hover:bg-black hover:text-white transition cursor-pointer"
+          onClick={() => navigate("/checkout")}
+        >
           Check Out
         </button>
       </div>

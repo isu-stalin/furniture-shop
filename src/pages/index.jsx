@@ -9,6 +9,9 @@ const Shop = lazy(() => import("./shop/Shop"))
 const Wishlist = lazy(() => import("./wishlist/Wishlist"))
 const Cart = lazy(() => import("./cart/Cart"))
 const ProductDetails = lazy(() => import("./productDetails/ProductDetails"))
+const Checkout = lazy(() => import("./checkout/Checkout"))
+const About = lazy(() => import("./about/About"))
+const Contact = lazy(() => import("./contact/Contact"))
 
 const MainRouters = () => {
   const routes = useRoutes([
@@ -18,6 +21,9 @@ const MainRouters = () => {
         { path: "/shop", element: <Suspense><Shop /></Suspense> },
         { path: "/wishlist", element: <Suspense><Wishlist /></Suspense> },
         { path: "/cart", element: <Suspense><Cart /></Suspense> },
+        { path: "/about", element: <Suspense><About /></Suspense> },
+        { path: "/contact", element: <Suspense><Contact /></Suspense> },
+        { path: "/checkout", element: <Suspense><Checkout/></Suspense> },
         { path: "/product/:id", element: <Suspense><ProductDetails /></Suspense> },
       ]
     },

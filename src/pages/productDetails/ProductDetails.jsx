@@ -11,6 +11,7 @@ const ProductDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const wishlist = useSelector((state) => state.wishlist.value);
+  const cart = useSelector((state) => state.cart.value);
 
   const { getProductById, getProduct } = useProduct();
   const { data: product, isLoading, error } = getProductById(id);
@@ -19,6 +20,7 @@ const ProductDetails = () => {
   const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState("desc");
   const [selectedImage, setSelectedImage] = useState(null);
+
   useEffect(() => {
     setSelectedImage(null);
   }, [id]);
@@ -27,6 +29,7 @@ const ProductDetails = () => {
   if (error || !product) return <div className="text-center py-10">Product not found</div>;
 
   const isInWishlist = wishlist.some((item) => item.id === product.id);
+  const isInCart = cart.some((item) => item.id === product.id);
   const mainImage = selectedImage || product.thumbnail;
 
   return (
@@ -93,20 +96,21 @@ const ProductDetails = () => {
             </div>
 
             <button
+              disabled={isInCart}
               onClick={() => dispatch(addToCart({ ...product, quantity }))}
-              className="px-6 py-2 bg-black text-white cursor-pointer"
+              className={`px-6 py-2 ${isInCart ? "bg-gray-400 cursor-not-allowed" : "bg-black hover:bg-[#222]"} text-white cursor-pointer`}
             >
-              Add to Cart
+              {isInCart ? "Already in Cart" : "Add to Cart"}
             </button>
 
             <button
               onClick={() => dispatch(toggleWishlist(product))}
-              className="text-2xl"
+              className="text-2xl cursor-pointer"
             >
               {isInWishlist ? (
-                <HeartFilled className="text-red-500" />
+                <HeartFilled className="text-black" />
               ) : (
-                <HeartOutlined className="text-gray-600" />
+                <HeartOutlined className="text-white"/>
               )}
             </button>
           </div>

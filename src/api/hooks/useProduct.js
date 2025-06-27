@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import { api } from "..";
 
 export const useProduct = () => {
   const getProduct = ({ limit = 8, skip = 0 } = {}) => {
@@ -11,6 +12,17 @@ export const useProduct = () => {
       },
     });
   };
+  const getSearchProduct = (params) => {
+    return useQuery({
+      queryKey: ["search", params],
+      queryFn: async () => {
+        const res = await api.get("/products/search", { params });
+        return res.data;
+      },
+      enabled: !!params?.q,
+    });
+  };
+  
 
   const getProductById = (id) => {
     return useQuery({
@@ -24,6 +36,6 @@ export const useProduct = () => {
     });
   };
 
-  return { getProduct, getProductById };
+  return { getProduct, getProductById, getSearchProduct };
 };
   

@@ -1,16 +1,13 @@
 import { useEffect } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { NavLink, useNavigate, useSearchParams } from "react-router-dom";
 import { useProduct } from "@/api/hooks/useProduct";
 import Products from "@/components/products/Products";
 import { Pagination } from "antd";
 
 import shopBg from "@/assets/shop-bg.png";
-import compareIcon from "@/assets/compare-btn.svg";
 import customerSupport from "@/assets/customer-support.svg";
 import gridBigRound from "@/assets/grid-big-round.svg";
 import guaranteeSvg from "@/assets/guarantee.svg";
-import likeBtn from "@/assets/like-btn.svg";
-import shareBtn from "@/assets/share-btn.svg";
 import shippingSvg from "@/assets/shipping.svg";
 import systemFiltering from "@/assets/system-filtering.svg";
 import trophyIcon from "@/assets/trophy-icon.svg";
@@ -49,7 +46,7 @@ const Shop = () => {
       >
         <h2 className="text-4xl text-black font-bold">Shop</h2>
         <p className="mt-2 text-sm text-black">
-          Home &gt; <span className="text-gray-700">Shop</span>
+          <NavLink to={'/'}>Home</NavLink> &gt; <span className="text-gray-700"><NavLink to={'/shop'}>Shop</NavLink></span>
         </p>
       </section>
 

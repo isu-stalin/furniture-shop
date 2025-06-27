@@ -20,7 +20,8 @@
     "react-dom": "^18.2.0",
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.6.2",
-    "tailwindcss": "^4.1.10"
+    "tailwindcss": "^4.1.10",
+    "vite-plugin-pwa": "^1.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
